@@ -1,0 +1,31 @@
+config:
+  model:
+    fcnet_hiddens: [64, 32]
+  hiddens: [16]
+  dueling: True
+  double_q: True
+  noisy: False
+  gamma: 0.99
+  lr: 1.e-3
+  n_step: 5
+  num_atoms: 1
+  num_steps_sampled_before_learning_starts: 10000
+  train_batch_size: 32
+  target_network_update_freq: 1000
+  tau: 1.0
+  # _disable_preprocessor_api: False
+  replay_buffer_config:
+    # type: MultiAgentPrioritizedReplayBuffer
+    prioritized_replay_alpha: 0.7
+    prioritized_replay_beta: 0.3
+    capacity: 100000
+exploration_config:
+  type: EpsilonGreedy
+  initial_epsilon: 1
+  epsilon_timesteps: 100000
+  final_epsilon: 0.01
+    # type: SoftQ
+    # temperature: 1.01
+# ignore_worker_failures: True
+store_buffer_in_checkpoints: True
+log_level: INFO

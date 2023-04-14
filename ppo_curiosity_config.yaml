@@ -1,0 +1,36 @@
+config:
+  model:
+    fcnet_hiddens: [64, 32, 16]
+    vf_share_layers: False
+  gamma: 0.99
+  lr: 1.e-3
+  use_critic: True
+  use_gae: True
+  # timesteps_per_iteration: 10240
+  train_batch_size: 1024
+  sgd_minibatch_size: 32
+  num_sgd_iter: 3
+  # lambda: 0.95
+  kl_coeff: 0.5
+  entropy_coeff: 0.01
+  shuffle_sequences: True
+exploration_config:
+  type: StochasticSampling
+  # type: Curiosity
+  # eta: 1.0
+  # lr: 0.001
+  # feature_dim: 32
+  # feature_net_config: 
+  #   fcnet_hiddens: []
+  #   fcnet_activation: relu
+  # inverse_net_hiddens: [64]
+  # inverse_net_activation: relu
+  # forward_net_hiddens: [64]
+  # forward_net_activation: relu
+  # beta: 0.2
+  # sub_exploration:
+  #   type: StochasticSampling
+    # epsilon_timesteps: 50000
+    # final_epsilon: 0.01
+ignore_worker_failures: True
+log_level: INFO
